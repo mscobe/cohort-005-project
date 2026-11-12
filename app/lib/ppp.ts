@@ -3,7 +3,7 @@
 // Tiers determine the discount percentage applied at purchase time.
 
 export const PPP_TIERS = {
-  1: { discount: 0, label: "Full Price" },
+  1: { discount: 0, label: "List Price" },
   2: { discount: 0.3, label: "30% off" },
   3: { discount: 0.5, label: "50% off" },
   4: { discount: 0.7, label: "70% off" },
@@ -12,7 +12,7 @@ export const PPP_TIERS = {
 export type PppTier = keyof typeof PPP_TIERS;
 
 const COUNTRY_TIER_MAP: Record<string, PppTier> = {
-  // Tier 1 — Full price
+  // Tier 1 — List Price
   US: 1, CA: 1, GB: 1, AU: 1, DE: 1, FR: 1, NL: 1, SE: 1, NO: 1, CH: 1, JP: 1, SG: 1,
   // Tier 2 — 30% off
   PL: 2, MX: 2, BR: 2, TR: 2, TH: 2, MY: 2, CZ: 2, CL: 2,
