@@ -69,7 +69,7 @@ describe("PPP Config", () => {
   // ─── Price Calculation ───
 
   describe("calculatePppPrice", () => {
-    it("returns full price for tier 1", () => {
+    it("returns the List Price for tier 1", () => {
       expect(calculatePppPrice(4999, "US")).toBe(4999);
     });
 
@@ -89,7 +89,7 @@ describe("PPP Config", () => {
       expect(calculatePppPrice(0, "IN")).toBe(0);
     });
 
-    it("returns full price for null country", () => {
+    it("returns the List Price for null country", () => {
       expect(calculatePppPrice(4999, null)).toBe(4999);
     });
   });
@@ -102,9 +102,9 @@ describe("PPP Config", () => {
       expect(info).toEqual({ tier: 3, discount: 0.5, label: "50% off" });
     });
 
-    it("returns full price info for null", () => {
+    it("returns List Price info for null", () => {
       const info = getCountryTierInfo(null);
-      expect(info).toEqual({ tier: 1, discount: 0, label: "Full Price" });
+      expect(info).toEqual({ tier: 1, discount: 0, label: "List Price" });
     });
   });
 
@@ -132,7 +132,7 @@ describe("PPP Config", () => {
       expect(result.blocked).toBe(false);
     });
 
-    // --- Tier 1 (full price) purchases are never blocked ---
+    // --- Tier 1 (List Price) purchases are never blocked ---
 
     it("allows Tier 1 purchase from any country", () => {
       const result = checkPppAccess(4999, true, "US", "IN");
